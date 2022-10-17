@@ -226,7 +226,7 @@ Random Machine Learning Model was selected to predict a successful movie. Succes
 
 <br>
 
-![prediction_model.png](/Images/prediction_model.png)
+![model_output.png](/Images/model_output.png)
 
 <br>
 
