@@ -24,7 +24,7 @@ class prediction(Resource):
         
         input_data = predict_input.split(',')
         
-        input_data_number = [int(numeric_string) for numeric_string in input_data]
+        input_data_number = [float(numeric_string) for numeric_string in input_data]
             
 
         df = pd.DataFrame([input_data_number], columns=['startYear', 'runtimeMinutes',
@@ -37,7 +37,18 @@ class prediction(Resource):
         model = joblib.load('random_forest.joblib')
         prediction = model.predict(df)
         predict_result = prediction[0]
-
+        if predict_result==0:
+            predict_result = "E"
+        elif predict_result ==1:
+            predict_result = "D"
+        elif predict_result ==2:
+            predict_result = "C"
+        elif predict_result ==3:
+            predict_result = "B"
+        elif predict_result ==4:
+            predict_result = "A"
+        else:
+            predict_result = "Z"
         return jsonify(predict_result)
 
 
